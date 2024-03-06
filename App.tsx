@@ -25,6 +25,10 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import SPTHeader from './src/components/SPTHeader';
+import ToolBar from './src/components/ToolBar';
+import SearchActions from './src/actions/SearchActions';
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -71,19 +75,21 @@ function App(): React.JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
+        {/* <Header /> */}
+        <SPTHeader />
+        <ToolBar text={'搜尋打工...'} setText={SearchActions.throttleSearch} />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
+          <Section title="打工">
+            Test <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
           </Section>
-          <Section title="See Your Changes">
+          <Section title="任務">
             <ReloadInstructions />
           </Section>
-          <Section title="Debug">
+          <Section title="家教">
             <DebugInstructions />
           </Section>
           <Section title="Learn More">
